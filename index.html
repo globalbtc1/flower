@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day</title>
+    <title>Happy New Day</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,27 +12,72 @@
     </div>
 
     <div id="mainScreen" style="display: none;">
-        <p class="small-text">Send this to your loved ones</p>
-        <h1>Happy Valentine's Day</h1>
+        <div class="stars"></div>
+        <h1 class="glow-text">Happy Valentine's Day</h1>
         
-        <div class="night"></div>
-        <div class="flower">
-            <div class="flower-wrapper">
-                <div class="flower__line"></div>
-                <div class="flower__center"></div>
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                
-                <div class="flower__stem__leaf flower__stem__leaf--1"></div>
-                <div class="flower__stem__leaf flower__stem__leaf--2"></div>
+        <div class="garden">
+            <!-- Rumput Latar -->
+            <div class="grass g1"></div>
+            <div class="grass g2"></div>
+            <div class="grass g3"></div>
+            <div class="grass g4"></div>
+
+            <!-- Bunga Kiri -->
+            <div class="flower f-left">
+                <div class="stem">
+                    <div class="leaf l1"></div>
+                    <div class="leaf l2"></div>
+                </div>
+                <div class="flower-head">
+                    <div class="petal p1"></div><div class="petal p2"></div>
+                    <div class="petal p3"></div><div class="petal p4"></div>
+                    <div class="core"></div>
+                </div>
+            </div>
+
+            <!-- Bunga Tengah -->
+            <div class="flower f-center">
+                <div class="stem">
+                    <div class="leaf l1"></div>
+                    <div class="leaf l2"></div>
+                    <div class="leaf l3"></div>
+                    <div class="leaf l4"></div>
+                </div>
+                <div class="flower-head">
+                    <div class="petal p1"></div><div class="petal p2"></div>
+                    <div class="petal p3"></div><div class="petal p4"></div>
+                    <div class="core"></div>
+                </div>
+            </div>
+
+            <!-- Bunga Kanan -->
+            <div class="flower f-right">
+                <div class="stem">
+                    <div class="leaf l1"></div>
+                    <div class="leaf l2"></div>
+                    <div class="leaf l3"></div>
+                </div>
+                <div class="flower-head">
+                    <div class="petal p1"></div><div class="petal p2"></div>
+                    <div class="petal p3"></div><div class="petal p4"></div>
+                    <div class="core"></div>
+                </div>
+            </div>
+
+            <!-- Daun Lebat di Bawah -->
+            <div class="base-leaves">
+                <div class="b-leaf bl1"></div>
+                <div class="b-leaf bl2"></div>
+                <div class="b-leaf bl3"></div>
+                <div class="b-leaf bl4"></div>
+                <div class="b-leaf bl5"></div>
             </div>
         </div>
     </div>
 
-    <!-- Ganti 'lagu.mp3' sesuai nama file audio Anda di Codespaces -->
     <audio id="bgMusic" src="lagu.mp3" loop></audio>
     <script src="script.js"></script>
+</body>
+</html>
 </body>
 </html>
