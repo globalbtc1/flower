@@ -1,0 +1,40 @@
+body {
+    background-color: #000; /* Latar gelap seperti di video */
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#welcomeScreen {
+    z-index: 100;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #14c5fc;
+    color: white;
+    border: none;
+}
+
+#mainScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 
+  Masukkan full CSS animasi bunga dari referensi Anda di bawah ini.
+  Fokuskan pada animasi glow dan transform-origin seperti di video.
+*/
+.flower {
+    position: relative;
+    /* ... CSS Bunga ... */
+}
