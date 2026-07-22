@@ -3,47 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Day</title>
+    <title>Happy Valentine's Day</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="welcomeScreen">
-        <button id="playBtn">Buka Pesan dari zer0 💌</button>
+        <button id="playBtn">Buka Pesan 💌</button>
     </div>
 
     <div id="mainScreen" style="display: none;">
         <div class="stars"></div>
-        <h1 class="glow-text">Happy New Day</h1>
+        <h1 class="glow-text">Happy Valentine's Day</h1>
         
         <div class="garden">
-            <!-- Rumput Kiri & Kanan -->
-            <div class="grass-bunch left-grass">
-                <div class="blade b1"></div><div class="blade b2"></div><div class="blade b3"></div>
-            </div>
-            <div class="grass-bunch right-grass">
-                <div class="blade b4"></div><div class="blade b5"></div><div class="blade b6"></div>
-            </div>
+            <!-- Rumput -->
+            <div class="grass g-left1"></div><div class="grass g-left2"></div><div class="grass g-left3"></div>
+            <div class="grass g-right1"></div><div class="grass g-right2"></div><div class="grass g-right3"></div>
 
             <!-- Bunga Kiri -->
             <div class="flower f-left">
-                <div class="stem">
-                    <div class="leaf sl-left l1"></div>
-                    <div class="leaf sl-right l2"></div>
-                </div>
-                <div class="head">
-                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
-                    <div class="core"></div>
-                </div>
-            </div>
-
-            <!-- Bunga Tengah -->
-            <div class="flower f-center">
-                <div class="stem">
-                    <div class="leaf sl-left l3"></div>
-                    <div class="leaf sl-right l4"></div>
-                    <div class="leaf sl-left l5"></div>
-                    <div class="leaf sl-right l6"></div>
-                </div>
+                <div class="stem"></div>
+                <div class="leaf l-left l-1"></div><div class="leaf l-right l-2"></div>
                 <div class="head">
                     <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
                     <div class="core"></div>
@@ -52,22 +32,30 @@
 
             <!-- Bunga Kanan -->
             <div class="flower f-right">
-                <div class="stem">
-                    <div class="leaf sl-left l7"></div>
-                    <div class="leaf sl-right l8"></div>
-                </div>
+                <div class="stem"></div>
+                <div class="leaf l-left l-3"></div><div class="leaf l-right l-4"></div>
                 <div class="head">
                     <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
                     <div class="core"></div>
                 </div>
             </div>
 
-            <!-- Semak Daun di Dasar -->
-            <div class="base-bush">
-                <div class="bush-leaf bl1"></div><div class="bush-leaf bl2"></div>
-                <div class="bush-leaf bl3"></div><div class="bush-leaf bl4"></div>
-                <div class="bush-leaf bl5"></div><div class="bush-leaf bl6"></div>
-                <div class="bush-leaf bl7"></div><div class="bush-leaf bl8"></div>
+            <!-- Bunga Tengah (Tertinggi) -->
+            <div class="flower f-center">
+                <div class="stem"></div>
+                <div class="leaf l-left l-5"></div><div class="leaf l-right l-6"></div>
+                <div class="leaf l-left l-7"></div><div class="leaf l-right l-8"></div>
+                <div class="head">
+                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
+                    <div class="core"></div>
+                </div>
+            </div>
+
+            <!-- Semak Lebar Dasar -->
+            <div class="bush-container">
+                <div class="bush bl1"></div><div class="bush bl2"></div><div class="bush bl3"></div>
+                <div class="bush bl4"></div><div class="bush bl5"></div><div class="bush bl6"></div>
+                <div class="bush bl7"></div><div class="bush bl8"></div><div class="bush bl9"></div>
             </div>
         </div>
     </div>
