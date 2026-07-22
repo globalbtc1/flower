@@ -4,5 +4,5 @@ document.getElementById('playBtn').addEventListener('click', function() {
     
     let music = document.getElementById('bgMusic');
     music.volume = 1.0; 
-    music.play();
+    music.play().catch(e => console.log("Audio requires interaction:", e));
 });
