@@ -1,10 +1,8 @@
 document.getElementById('playBtn').addEventListener('click', function() {
-    // Sembunyikan tombol awal
     document.getElementById('welcomeScreen').style.display = 'none';
-    
-    // Tampilkan animasi
     document.getElementById('mainScreen').style.display = 'flex';
     
-    // Putar lagu
-    document.getElementById('bgMusic').play();
+    let music = document.getElementById('bgMusic');
+    music.volume = 1.0; 
+    music.play();
 });
