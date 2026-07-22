@@ -8,29 +8,30 @@
 </head>
 <body>
     <div id="welcomeScreen">
-        <button id="playBtn">Buka Pesan 💌</button>
+        <button id="playBtn">Buka Pesan dari zer0 💌</button>
     </div>
 
     <div id="mainScreen" style="display: none;">
         <div class="stars"></div>
-        <h1 class="glow-text">Happy Valentine's Day</h1>
+        <h1 class="glow-text">Happy New Day</h1>
         
         <div class="garden">
-            <!-- Rumput Latar -->
-            <div class="grass g1"></div>
-            <div class="grass g2"></div>
-            <div class="grass g3"></div>
-            <div class="grass g4"></div>
+            <!-- Rumput Kiri & Kanan -->
+            <div class="grass-bunch left-grass">
+                <div class="blade b1"></div><div class="blade b2"></div><div class="blade b3"></div>
+            </div>
+            <div class="grass-bunch right-grass">
+                <div class="blade b4"></div><div class="blade b5"></div><div class="blade b6"></div>
+            </div>
 
             <!-- Bunga Kiri -->
             <div class="flower f-left">
                 <div class="stem">
-                    <div class="leaf l1"></div>
-                    <div class="leaf l2"></div>
+                    <div class="leaf sl-left l1"></div>
+                    <div class="leaf sl-right l2"></div>
                 </div>
-                <div class="flower-head">
-                    <div class="petal p1"></div><div class="petal p2"></div>
-                    <div class="petal p3"></div><div class="petal p4"></div>
+                <div class="head">
+                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
                     <div class="core"></div>
                 </div>
             </div>
@@ -38,14 +39,13 @@
             <!-- Bunga Tengah -->
             <div class="flower f-center">
                 <div class="stem">
-                    <div class="leaf l1"></div>
-                    <div class="leaf l2"></div>
-                    <div class="leaf l3"></div>
-                    <div class="leaf l4"></div>
+                    <div class="leaf sl-left l3"></div>
+                    <div class="leaf sl-right l4"></div>
+                    <div class="leaf sl-left l5"></div>
+                    <div class="leaf sl-right l6"></div>
                 </div>
-                <div class="flower-head">
-                    <div class="petal p1"></div><div class="petal p2"></div>
-                    <div class="petal p3"></div><div class="petal p4"></div>
+                <div class="head">
+                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
                     <div class="core"></div>
                 </div>
             </div>
@@ -53,31 +53,26 @@
             <!-- Bunga Kanan -->
             <div class="flower f-right">
                 <div class="stem">
-                    <div class="leaf l1"></div>
-                    <div class="leaf l2"></div>
-                    <div class="leaf l3"></div>
+                    <div class="leaf sl-left l7"></div>
+                    <div class="leaf sl-right l8"></div>
                 </div>
-                <div class="flower-head">
-                    <div class="petal p1"></div><div class="petal p2"></div>
-                    <div class="petal p3"></div><div class="petal p4"></div>
+                <div class="head">
+                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
                     <div class="core"></div>
                 </div>
             </div>
 
-            <!-- Daun Lebat di Bawah -->
-            <div class="base-leaves">
-                <div class="b-leaf bl1"></div>
-                <div class="b-leaf bl2"></div>
-                <div class="b-leaf bl3"></div>
-                <div class="b-leaf bl4"></div>
-                <div class="b-leaf bl5"></div>
+            <!-- Semak Daun di Dasar -->
+            <div class="base-bush">
+                <div class="bush-leaf bl1"></div><div class="bush-leaf bl2"></div>
+                <div class="bush-leaf bl3"></div><div class="bush-leaf bl4"></div>
+                <div class="bush-leaf bl5"></div><div class="bush-leaf bl6"></div>
+                <div class="bush-leaf bl7"></div><div class="bush-leaf bl8"></div>
             </div>
         </div>
     </div>
 
     <audio id="bgMusic" src="lagu.mp3" loop></audio>
     <script src="script.js"></script>
-</body>
-</html>
 </body>
 </html>
