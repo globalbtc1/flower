@@ -1,66 +1,301 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+  <style>
+    *, *::after, *::before {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #010a15;
+      --flower-color: #4cd3d6;
+      --flower-center: #f1ef75;
+      --stem-color: #1a5e59;
+      --leaf-color: #268b83;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    /* Header Container */
+    .header {
+      text-align: center;
+      margin-top: 40px;
+      z-index: 100;
+    }
+
+    .header .subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+      font-weight: 300;
+    }
+
+    .header .title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(76, 211, 214, 0.4);
+    }
+
+    /* Night Sky Particles */
+    .night {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      filter: blur(0.1vmin);
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ddf, rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0.5;
+    }
+
+    /* Flowers Container */
+    .flowers {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    .flower {
+      position: absolute;
+      bottom: 5vmin;
+      transform-origin: bottom center;
+      z-index: 10;
+      --fl-speed: 0.8s;
+    }
+
+    /* Central Flower */
+    .flower--1 {
+      animation: moving-flower-1 4s linear infinite;
+    }
+    .flower--1 .flower__line {
+      height: 55vh;
+      width: 1.5vmin;
+      background-image: linear-gradient(to top, transparent, var(--stem-color), #2ea399);
+      border-radius: 4px;
+      animation: grow-stem 2s ease-out forwards;
+    }
+
+    /* Left Flower */
+    .flower--2 {
+      left: 38%;
+      transform: rotate(-15deg);
+      animation: moving-flower-2 3.8s linear infinite;
+    }
+    .flower--2 .flower__line {
+      height: 45vh;
+      width: 1.2vmin;
+      background-image: linear-gradient(to top, transparent, var(--stem-color), #2ea399);
+      border-radius: 4px;
+      animation: grow-stem 2s 0.3s ease-out forwards;
+    }
+
+    /* Right Flower */
+    .flower--3 {
+      left: 58%;
+      transform: rotate(15deg);
+      animation: moving-flower-3 4.2s linear infinite;
+    }
+    .flower--3 .flower__line {
+      height: 48vh;
+      width: 1.2vmin;
+      background-image: linear-gradient(to top, transparent, var(--stem-color), #2ea399);
+      border-radius: 4px;
+      animation: grow-stem 2s 0.5s ease-out forwards;
+    }
+
+    /* Flower Blooms & Petals */
+    .flower__head {
+      position: absolute;
+      top: -6vmin;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 12vmin;
+      height: 12vmin;
+      animation: bloom-head 1s 1.5s ease-out forwards;
+    }
+
+    .flower__petal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5vmin;
+      height: 9vmin;
+      background: linear-gradient(to top, var(--flower-color), #a2f2f3);
+      border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+      transform-origin: bottom center;
+      box-shadow: 0 0 15px rgba(76, 211, 214, 0.8);
+    }
+
+    .flower__petal--1 { transform: translate(-50%, -100%) rotate(0deg); }
+    .flower__petal--2 { transform: translate(-50%, -100%) rotate(45deg); }
+    .flower__petal--3 { transform: translate(-50%, -100%) rotate(90deg); }
+    .flower__petal--4 { transform: translate(-50%, -100%) rotate(135deg); }
+    .flower__petal--5 { transform: translate(-50%, -100%) rotate(180deg); }
+    .flower__petal--6 { transform: translate(-50%, -100%) rotate(225deg); }
+    .flower__petal--7 { transform: translate(-50%, -100%) rotate(270deg); }
+    .flower__petal--8 { transform: translate(-50%, -100%) rotate(315deg); }
+
+    .flower__center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3.5vmin;
+      height: 3.5vmin;
+      background-color: var(--flower-center);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--flower-center);
+      z-index: 5;
+    }
+
+    /* Leaves */
+    .flower__leaf {
+      position: absolute;
+      width: 5vmin;
+      height: 3vmin;
+      background-color: var(--leaf-color);
+      border-radius: 10vmin 0;
+      box-shadow: 0 0 8px rgba(38, 139, 131, 0.6);
+      opacity: 0;
+      animation: bloom-leaf 1s 1.2s forwards;
+    }
+
+    .flower__leaf--left {
+      left: -4.5vmin;
+      top: 40%;
+      transform: rotate(-20deg);
+    }
+
+    .flower__leaf--right {
+      right: -4.5vmin;
+      top: 55%;
+      transform: rotate(20deg) scaleX(-1);
+    }
+
+    /* Keyframe Animations */
+    @keyframes grow-stem {
+      0% { height: 0; }
+    }
+
+    @keyframes bloom-head {
+      100% { transform: translateX(-50%) scale(1); }
+    }
+
+    @keyframes bloom-leaf {
+      100% { opacity: 1; }
+    }
+
+    @keyframes moving-flower-1 {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    @keyframes moving-flower-2 {
+      0%, 100% { transform: rotate(-15deg); }
+      50% { transform: rotate(-12deg); }
+    }
+
+    @keyframes moving-flower-3 {
+      0%, 100% { transform: rotate(15deg); }
+      50% { transform: rotate(18deg); }
+    }
+  </style>
 </head>
 <body>
-    <div id="welcomeScreen">
-        <button id="playBtn">Buka Pesan 💌</button>
+
+  <div class="night"></div>
+
+  <div class="header">
+    <div class="subtitle">Send this to your loved ones</div>
+    <div class="title">Happy Valentine's Day</div>
+  </div>
+
+  <div class="flowers">
+    <!-- Bunga Tengah -->
+    <div class="flower flower--1">
+      <div class="flower__line">
+        <div class="flower__leaf flower__leaf--left"></div>
+        <div class="flower__leaf flower__leaf--right"></div>
+      </div>
+      <div class="flower__head">
+        <div class="flower__center"></div>
+        <div class="flower__petal flower__petal--1"></div>
+        <div class="flower__petal flower__petal--2"></div>
+        <div class="flower__petal flower__petal--3"></div>
+        <div class="flower__petal flower__petal--4"></div>
+        <div class="flower__petal flower__petal--5"></div>
+        <div class="flower__petal flower__petal--6"></div>
+        <div class="flower__petal flower__petal--7"></div>
+        <div class="flower__petal flower__petal--8"></div>
+      </div>
     </div>
 
-    <div id="mainScreen" style="display: none;">
-        <div class="stars"></div>
-        <h1 class="glow-text">Happy Valentine's Day</h1>
-        
-        <div class="garden">
-            <!-- Rumput -->
-            <div class="grass g-left1"></div><div class="grass g-left2"></div><div class="grass g-left3"></div>
-            <div class="grass g-right1"></div><div class="grass g-right2"></div><div class="grass g-right3"></div>
-
-            <!-- Bunga Kiri -->
-            <div class="flower f-left">
-                <div class="stem"></div>
-                <div class="leaf l-left l-1"></div><div class="leaf l-right l-2"></div>
-                <div class="head">
-                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
-                    <div class="core"></div>
-                </div>
-            </div>
-
-            <!-- Bunga Kanan -->
-            <div class="flower f-right">
-                <div class="stem"></div>
-                <div class="leaf l-left l-3"></div><div class="leaf l-right l-4"></div>
-                <div class="head">
-                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
-                    <div class="core"></div>
-                </div>
-            </div>
-
-            <!-- Bunga Tengah (Tertinggi) -->
-            <div class="flower f-center">
-                <div class="stem"></div>
-                <div class="leaf l-left l-5"></div><div class="leaf l-right l-6"></div>
-                <div class="leaf l-left l-7"></div><div class="leaf l-right l-8"></div>
-                <div class="head">
-                    <div class="petal p-left"></div><div class="petal p-center"></div><div class="petal p-right"></div>
-                    <div class="core"></div>
-                </div>
-            </div>
-
-            <!-- Semak Lebar Dasar -->
-            <div class="bush-container">
-                <div class="bush bl1"></div><div class="bush bl2"></div><div class="bush bl3"></div>
-                <div class="bush bl4"></div><div class="bush bl5"></div><div class="bush bl6"></div>
-                <div class="bush bl7"></div><div class="bush bl8"></div><div class="bush bl9"></div>
-            </div>
-        </div>
+    <!-- Bunga Kiri -->
+    <div class="flower flower--2">
+      <div class="flower__line">
+        <div class="flower__leaf flower__leaf--left"></div>
+      </div>
+      <div class="flower__head">
+        <div class="flower__center"></div>
+        <div class="flower__petal flower__petal--1"></div>
+        <div class="flower__petal flower__petal--2"></div>
+        <div class="flower__petal flower__petal--3"></div>
+        <div class="flower__petal flower__petal--4"></div>
+        <div class="flower__petal flower__petal--5"></div>
+        <div class="flower__petal flower__petal--6"></div>
+        <div class="flower__petal flower__petal--7"></div>
+        <div class="flower__petal flower__petal--8"></div>
+      </div>
     </div>
 
-    <audio id="bgMusic" src="lagu.mp3" loop></audio>
-    <script src="script.js"></script>
+    <!-- Bunga Kanan -->
+    <div class="flower flower--3">
+      <div class="flower__line">
+        <div class="flower__leaf flower__leaf--right"></div>
+      </div>
+      <div class="flower__head">
+        <div class="flower__center"></div>
+        <div class="flower__petal flower__petal--1"></div>
+        <div class="flower__petal flower__petal--2"></div>
+        <div class="flower__petal flower__petal--3"></div>
+        <div class="flower__petal flower__petal--4"></div>
+        <div class="flower__petal flower__petal--5"></div>
+        <div class="flower__petal flower__petal--6"></div>
+        <div class="flower__petal flower__petal--7"></div>
+        <div class="flower__petal flower__petal--8"></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
