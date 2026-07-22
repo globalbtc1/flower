@@ -1,102 +1,103 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    background: radial-gradient(circle at center 60%, #0c262d 0%, #03080a 70%);
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at bottom, #06181c 0%, #020508 80%);
+    height: 100vh; overflow: hidden; font-family: 'Segoe UI', sans-serif;
+    display: flex; align-items: center; justify-content: center;
 }
 
-#welcomeScreen { z-index: 100; }
-button {
-    padding: 12px 24px; font-size: 18px; border-radius: 8px;
-    background: #69d6c1; color: #03080a; border: none; cursor: pointer;
-}
+#welcomeScreen { z-index: 100; position: absolute; }
+button { padding: 12px 24px; font-size: 16px; border-radius: 8px; background: #69d6c1; color: #000; border: none; font-weight: bold; cursor: pointer; }
 
-#mainScreen { width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center; }
+#mainScreen { width: 100%; height: 100%; position: relative; }
 
 .glow-text {
-    margin-top: 10vh; color: #fff; font-size: 32px; font-weight: 300;
+    position: absolute; width: 100%; text-align: center; top: 12vh;
+    color: #fff; font-size: 26px; font-weight: 300; letter-spacing: 1px;
     text-shadow: 0 0 10px #fff, 0 0 20px #82d8d5; z-index: 10;
 }
 
 .stars {
-    position: absolute; width: 2px; height: 2px; background: transparent;
-    box-shadow: 20vw 20vh #fff, 80vw 10vh #fff, 40vw 15vh #fff, 60vw 30vh #fff, 30vw 40vh #fff, 70vw 25vh #fff;
+    position: absolute; width: 2px; height: 2px; background: #fff;
+    box-shadow: 15vw 15vh #fff, 85vw 20vh #fff, 50vw 25vh #fff, 70vw 40vh #fff, 30vw 35vh #fff, 45vw 10vh rgba(255,255,255,0.5), 60vw 30vh rgba(255,255,255,0.5);
     animation: twinkle 3s infinite alternate;
 }
 
-.garden { position: absolute; bottom: 0; width: 100%; height: 60vh; display: flex; justify-content: center; align-items: flex-end; }
+/* Kunci Proporsi Skala */
+.garden {
+    position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+    width: 350px; height: 420px;
+}
 
 /* Bunga Utama */
 .flower { position: absolute; bottom: 0; transform-origin: bottom center; }
-.f-center { z-index: 3; animation: sway 4s ease-in-out infinite alternate; }
-.f-left { z-index: 1; transform: translateX(-14vmin) scale(0.8); animation: sway 4.5s ease-in-out infinite alternate-reverse; }
-.f-right { z-index: 2; transform: translateX(14vmin) scale(0.85); animation: sway 5s ease-in-out infinite alternate; }
+.f-center { left: 172px; z-index: 3; animation: sway 4s ease-in-out infinite alternate; }
+.f-left { left: 100px; z-index: 1; animation: sway2 4.5s ease-in-out infinite alternate; }
+.f-right { left: 244px; z-index: 2; animation: sway3 5s ease-in-out infinite alternate; }
 
-.stem { width: 1.2vmin; background: linear-gradient(to top, #144f45, #35b0a3); border-radius: 4vmin; position: relative; animation: grow 2s forwards; }
-.f-center .stem { height: 45vmin; }
-.f-left .stem { height: 32vmin; }
-.f-right .stem { height: 35vmin; }
+.stem { width: 6px; background: linear-gradient(to top, #0c4238, #3ea89a); border-radius: 10px; animation: grow 2s forwards; }
+.f-center .stem { height: 320px; }
+.f-left .stem { height: 220px; }
+.f-right .stem { height: 250px; }
 
-/* Daun pada Tangkai */
+/* Daun Tangkai */
 .leaf {
-    position: absolute; width: 6vmin; height: 3vmin;
-    background: linear-gradient(to right, #248a7f, #41c7b8);
-    border-radius: 50% 0 50% 0; opacity: 0; animation: bloom 1.5s forwards 1s;
+    position: absolute; width: 35px; height: 18px;
+    background: linear-gradient(to right, #1f8273, #4bd1c2); opacity: 0; animation: fade 1.5s forwards 1s;
 }
-.sl-left { left: -5vmin; transform-origin: bottom right; transform: rotate(-30deg); border-radius: 50% 0 50% 0; }
-.sl-right { right: -5vmin; transform-origin: bottom left; transform: rotate(30deg); border-radius: 0 50% 0 50%; }
+.l-left { left: -32px; border-radius: 30px 0 30px 0; transform-origin: bottom right; transform: rotate(-35deg); }
+.l-right { left: 4px; border-radius: 0 30px 0 30px; transform-origin: bottom left; transform: rotate(35deg); }
 
-.l1 { bottom: 12vmin; } .l2 { bottom: 20vmin; } 
-.l3 { bottom: 10vmin; } .l4 { bottom: 18vmin; } .l5 { bottom: 28vmin; } .l6 { bottom: 35vmin; }
-.l7 { bottom: 15vmin; } .l8 { bottom: 25vmin; }
+.l-1 { bottom: 60px; } .l-2 { bottom: 100px; } 
+.l-3 { bottom: 80px; } .l-4 { bottom: 130px; }
+.l-5 { bottom: 90px; } .l-6 { bottom: 140px; } .l-7 { bottom: 200px; } .l-8 { bottom: 250px; }
 
-/* Kelopak Bunga (3 Bagian) */
-.head { position: absolute; top: -3vmin; left: -2.5vmin; width: 6vmin; height: 6vmin; opacity: 0; animation: bloom 2s forwards 1.5s; }
+/* Kepala Bunga */
+.head { position: absolute; top: 0; left: 3px; transform: translateX(-50%); width: 50px; height: 50px; opacity: 0; animation: fade 2s forwards 1.5s; }
 .petal {
-    position: absolute; bottom: 0; width: 3.5vmin; height: 5.5vmin;
-    background: linear-gradient(to top, #65d6c8, #cbfcf6);
-    border-radius: 50% 50% 10% 10%; transform-origin: bottom center; box-shadow: 0 0 1.5vmin rgba(101, 214, 200, 0.4);
+    position: absolute; bottom: 12px; width: 18px; height: 32px;
+    background: linear-gradient(to bottom, #d6fffa, #59c9bb);
+    border-radius: 50%; box-shadow: 0 0 12px rgba(118, 224, 210, 0.6); transform-origin: bottom center;
 }
-.p-left { transform: rotate(-55deg); left: -1.5vmin; height: 4.5vmin; }
-.p-center { transform: rotate(0deg); left: 1.25vmin; height: 5.5vmin; }
-.p-right { transform: rotate(55deg); left: 4vmin; height: 4.5vmin; }
-.core {
-    position: absolute; bottom: -0.5vmin; left: 1.25vmin; width: 3.5vmin; height: 1.5vmin;
-    background: #fffac9; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 15px #fced74; z-index: 2;
-}
+.p-left { left: 0px; transform: rotate(-50deg); }
+.p-center { left: 16px; transform: rotate(0deg); height: 38px; bottom: 14px; }
+.p-right { left: 32px; transform: rotate(50deg); }
+.core { position: absolute; bottom: 9px; left: 16px; width: 18px; height: 10px; background: #fdf5b8; border-radius: 50%; box-shadow: 0 0 10px #fff, 0 0 15px #fcf290; z-index: 2; }
 
-/* Semak Daun Lebat */
-.base-bush { position: absolute; bottom: -2vmin; z-index: 4; display: flex; justify-content: center; }
-.bush-leaf {
-    position: absolute; bottom: 0; width: 8vmin; height: 12vmin;
-    background: radial-gradient(ellipse at bottom, #0d3831, #1e7568);
-    border-radius: 50%; transform-origin: bottom center; opacity: 0; animation: bloom 1.5s forwards 0.5s;
+/* Semak Dasar Terpusat */
+.bush-container { position: absolute; bottom: 0; left: 175px; z-index: 4; }
+.bush {
+    position: absolute; bottom: 0; width: 40px; height: 80px;
+    background: radial-gradient(ellipse at bottom, #072a24, #126356);
+    border-radius: 50%; transform-origin: bottom center; opacity: 0; animation: fade 1.5s forwards 0.5s;
 }
-.bl1 { left: -18vmin; transform: rotate(-60deg); height: 10vmin; }
-.bl2 { left: -12vmin; transform: rotate(-40deg); height: 14vmin; }
-.bl3 { left: -6vmin; transform: rotate(-15deg); height: 16vmin; }
-.bl4 { left: 0vmin; transform: rotate(10deg); height: 17vmin; }
-.bl5 { left: 6vmin; transform: rotate(35deg); height: 15vmin; }
-.bl6 { left: 14vmin; transform: rotate(55deg); height: 12vmin; }
-.bl7 { left: -4vmin; transform: rotate(-5deg); height: 12vmin; z-index: 5; background: #248a7f; }
-.bl8 { left: 8vmin; transform: rotate(20deg); height: 10vmin; z-index: 5; background: #248a7f; }
+.bl1 { left: -110px; transform: rotate(-65deg); height: 70px; }
+.bl2 { left: -80px; transform: rotate(-45deg); height: 90px; }
+.bl3 { left: -50px; transform: rotate(-20deg); height: 110px; z-index: 5; background: #1c7a6b; }
+.bl4 { left: -20px; transform: rotate(0deg); height: 130px; z-index: 4; }
+.bl5 { left: 10px; transform: rotate(20deg); height: 110px; z-index: 5; background: #1c7a6b; }
+.bl6 { left: 40px; transform: rotate(45deg); height: 90px; }
+.bl7 { left: 70px; transform: rotate(65deg); height: 70px; }
+.bl8 { left: -40px; transform: rotate(35deg); height: 90px; z-index: 6; background: #269482; }
+.bl9 { left: 0px; transform: rotate(-35deg); height: 90px; z-index: 6; background: #269482; }
 
-/* Rumput */
-.grass-bunch { position: absolute; bottom: 0; display: flex; z-index: 0; }
-.left-grass { left: 10vw; } .right-grass { right: 10vw; }
-.blade {
-    position: absolute; bottom: 0; width: 0.6vmin; background: linear-gradient(to top, #134229, #3ca863);
-    border-radius: 50% 50% 0 0; transform-origin: bottom center;
+/* Rumput Kiri dan Kanan */
+.grass {
+    position: absolute; bottom: 0; width: 3px; background: linear-gradient(to top, #0f3d28, #45b36e);
+    border-radius: 10px; transform-origin: bottom center; z-index: 0;
 }
-.b1 { left: -4vmin; height: 25vmin; transform: rotate(-15deg); } .b2 { left: 0; height: 35vmin; transform: rotate(5deg); } .b3 { left: 4vmin; height: 20vmin; transform: rotate(20deg); }
-.b4 { right: 4vmin; height: 22vmin; transform: rotate(-20deg); } .b5 { right: 0; height: 32vmin; transform: rotate(-5deg); } .b6 { right: -4vmin; height: 28vmin; transform: rotate(15deg); }
+.g-left1 { left: 10px; height: 160px; transform: rotate(-15deg); }
+.g-left2 { left: 35px; height: 210px; transform: rotate(-5deg); }
+.g-left3 { left: 60px; height: 130px; transform: rotate(15deg); }
 
-/* Keyframes */
+.g-right1 { left: 280px; height: 140px; transform: rotate(-10deg); }
+.g-right2 { left: 310px; height: 200px; transform: rotate(5deg); }
+.g-right3 { left: 335px; height: 150px; transform: rotate(15deg); }
+
+/* Animasi */
 @keyframes grow { from { height: 0; } }
-@keyframes bloom { from { opacity: 0; transform: scale(0) rotate(var(--rot, 0deg)); } to { opacity: 1; transform: scale(1) rotate(var(--rot, 0deg)); } }
+@keyframes fade { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
 @keyframes sway { 0% { transform: rotate(-2deg); } 100% { transform: rotate(2deg); } }
+@keyframes sway2 { 0% { transform: rotate(1deg); } 100% { transform: rotate(-3deg); } }
+@keyframes sway3 { 0% { transform: rotate(-1deg); } 100% { transform: rotate(3deg); } }
 @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 1; } }
